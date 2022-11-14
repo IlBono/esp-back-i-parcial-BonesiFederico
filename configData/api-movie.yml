@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+spring:
+  application:
+    name: api-movie
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/movie-dev
+    username: root
+    password: InfraccionLegal2001**
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+eureka:
+      client:
+        registerWithEureka: true
+        fetchRegistry: false
+        serviceURL:
+          defaultZone: http://localhost:8761/eureka
+      instance:
+        instance-id: ${spring.application.name}:${random.int}
+
+
+management:
+      endpoints:
+        web:
+          exposure:
+            include: *
