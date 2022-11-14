@@ -2,19 +2,22 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="configSever" />
         <module name="api-catalog" />
         <module name="api-movie" />
+        <module name="configSever" />
+        <module name="eurekaServer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="api-catalog" target="17" />
       <module name="api-movie" target="17" />
       <module name="configSever" target="17" />
+      <module name="eurekaServer" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -22,6 +25,7 @@
       <module name="api-catalog" options="-parameters" />
       <module name="api-movie" options="-parameters" />
       <module name="configSever" options="-parameters" />
+      <module name="eurekaServer" options="-parameters" />
     </option>
   </component>
 </project>
