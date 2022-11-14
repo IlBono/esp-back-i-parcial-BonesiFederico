@@ -10,9 +10,9 @@ spring:
     username: root
     password: InfraccionLegal2001**
   jpa:
-      hibernate.ddl-auto: update
-      generate-ddl: true
-      show-sql: true
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
 
 eureka:
   client:
