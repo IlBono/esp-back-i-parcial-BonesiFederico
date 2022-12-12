@@ -9,10 +9,13 @@ spring:
     url: jdbc:mysql://localhost:3306/movie-dev
     username: root
     password: InfraccionLegal2001**
-    jpa:
-      hibernate.ddl-auto: update
-      generate-ddl: true
-      show-sql: true
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  autoconfigure:
+      exclude:
+        - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 eureka:
       client:
