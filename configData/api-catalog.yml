@@ -33,3 +33,47 @@ management:
     web:
       exposure:
         include: *
+
+resilience4j.circuitbreaker:
+  instances:
+    clientMovie:
+      allowHealthIndicatorToFail: false
+      registerHealthIndicator: true
+      slidingWindowSize: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 20
+      waitDurationInOpenState: 50s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+    clientSerie:
+      allowHealthIndicatorToFail: false
+      registerHealthIndicator: true
+      slidingWindowSize: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowType: TIME_BASED
+      minimumNumberOfCalls: 20
+      waitDurationInOpenState: 50s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+
+resilience4j.retry:
+  instances:
+    clientMovie:
+      maxAttempts: 3
+      waitDuration: 10s
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      retryExceptions:
+        - java.net.ConnectException
+        - org.springframework.web.client.HttpServerErrorException
+        - java.io.IOException
+    clientSerie:
+      maxAttempts: 3
+      waitDuration: 10s
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      retryExceptions:
+        - java.net.ConnectException
+        - org.springframework.web.client.HttpServerErrorException
+        - java.io.IOException
